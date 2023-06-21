@@ -1,0 +1,248 @@
+* {
+  user-select: none;
+}
+
+body {
+    background-color: #111827;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.article {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #1F2937;
+}
+
+.article-title {
+    color: #F9FAFB;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.article-meta {
+    color: #9CA3AF;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.article-content {
+    color: #D1D5DB;
+    font-size: 1rem;
+    word-break: break-word;
+}
+
+.article-link {
+    color: #2563EB;
+    word-break: break-all;
+}
+
+.thumbnail {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+}
+
+.modal-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    color: #111827;
+    cursor: pointer;
+}
+
+.about-container {
+    display: none;
+    background-color: #1F2937;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    color: #D1D5DB;
+    margin-bottom: 2rem;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 5%;
+}
+
+.btn {
+    background-color: #2563EB;
+    color: #F9FAFB;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #1d4ed8;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #9CA3AF;
+    padding: 0.25rem 1rem;
+    color: #F9FAFB;
+    font-size: 1rem;
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    width: 300px;
+}
+
+.search-button {
+    position: absolute;
+    right: 1rem;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.search-button:focus {
+    outline: none;
+    transform: scale(1.2);
+}
+
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #111827;
+}
+
+.loading-logo {
+  width: 200px;
+  animation: flicker 1s infinite;
+}
+
+.loading-text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold; 
+  margin-top: 2ch; 
+  font-size: 2ch;
+  color: white;
+  text-align: center;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+body.loaded .loading-screen {
+  display: none;
+}
+
+.dropdown-container {
+  position: relative;
+  margin-bottom: 2ch;
+  margin-top: 2ch;
+  border-radius: 0.25rem;
+}
+
+.category-dropdown {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #4A5568;
+  color: #D1D5DB;
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  width: 200px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.category-dropdown::after {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  border-bottom: 1px solid #D1D5DB;
+  border-right: 1px solid #D1D5DB;
+  transform: rotate(45deg);
+  margin-left: 0.5em;
+  margin-top: 0.25em;
+}
+
+.category-dropdown option {
+  background-color: #1F2937;
+  color: #D1D5DB;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  opacity: 0;
+}
+
+.category-dropdown:hover,
+.category-dropdown:focus {
+  background-color: #6B7280;
+  color: #F3F4F6;
+}

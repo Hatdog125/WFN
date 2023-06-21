@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worlds FRVR News</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="loading-screen">
+        <img class="loading-logo" src="worlds-frvr.png" alt="Worlds FRVR Logo">
+        <h2 class="loading-text">LOADING</h2>
+    </div>
+
+    <div class="container">
+        <div class="btn-container">
+            <div>
+                <button class="btn" onclick="toggleLatestNews()">Worlds FRVR</button>
+                <button class="btn ml-2" onclick="toggleAbout()">About</button>
+            </div>
+            <div class="search-container">
+                <input id="searchInput" class="search-input" type="text" placeholder="Search..." oninput="filterArticles()">
+                <button class="search-button" onclick="filterArticles()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="dropdown-container">
+            <select id="categoryDropdown" class="category-dropdown" onchange="filterArticles()">
+                <option value="all">Categories</option>
+                <option value="contest">Contest</option>
+                <option value="announcement">Announcement</option>
+                <option value="updates">Updates</option>
+            </select>
+        </div>
+
+        <div id="latestNewsContainer">
+            <div class="article">
+                <h2 class="article-title">Contest #127: Wings and Walls</h2>
+                <div class="article-meta">
+                    June 19, 2023 | Contest
+                </div>
+                <img src="wings_and_walls.png" alt="Thumbnail" class="thumbnail" onclick="showImageModal(this)">
+                <p class="article-content">
+                    The first Community Contest is up.<br><br>Unleash your imagination in the 'Wings and Walls' Building Contest, where the enchanting world of castles, dragons, and other magnificent flying fantasy creatures takes flight! Prepare to amaze and be amazed as builders compete to bring the extraordinary realm of fantasy to life in this magical contest!<br><br>
+                    <a href="https://www.reddit.com/r/WorldsFRVR/comments/14dandq/community_contest_127_wings_and_walls/?utm_source=share&utm_medium=web2x&context=3" class="article-link">https://www.reddit.com/r/WorldsFRVR/comments/14dandq/community_contest_127_wings_and_walls/?utm_source=share&utm_medium=web2x&context=3</a>
+                </p>
+            </div>
+
+
+            <div class="article">
+                <h2 class="article-title">Update: 0.77.0</h2>
+                <div class="article-meta">
+                    June 13, 2023 | Updates
+                </div>
+                <img src="cacti.png" alt="Thumbnail" class="thumbnail" onclick="showImageModal(this)">
+                <p class="article-content">
+                    Into the Desert - 0.77.0<br><br>
+                    • Greatly improved desert biomes can now be found in all generated worlds<br>
+                    • New *Unlockable Prop* system allows players to find rare varieties of plants and other props in Lost Frontier and unlock them for use everywhere you play<br>
+                    • New desert flora: two varieties of Cactorb and two of Cactiny<br>
+                    - Can you find the rare new Cactorb and Cactiny?<br>
+                    - The seeds of these desert plants can be used as a new source of various paint colors<br>
+                    • Add decorative spice plant props (unlockable through Lost Frontier)<br>
+                    • Add "Farming and Flora" tab to the build menu for all nature-related props<br>
+                    • Update Settlement build menu tab icon to include more current prop models<br>
+                    • Fix unable to move Settlements large distances<br>
+                    • Fix graphical glitch on Intel Iris Xe GPUs (bug credit: IceSpikes)
+                </p>
+            </div>
+
+            <div class="article">
+                <h2 class="article-title">Micchi transitioning to different project</h2>
+                <div class="article-meta">
+                    May 15, 2023 | Announcement
+                </div>
+                <img src="FAREWELL.png" alt="Thumbnail" class="thumbnail" onclick="showImageModal(this)">
+                <p class="article-content">
+                    *Hello, fellow Worlds players!*<br><br>
+
+                    Since I came onboard Worlds FRVR exactly 3 years ago, it was very much still in its infancy. There were practically no players to speak of and many of the current features you enjoy today had not been developed yet. Since then, me, the developer team and all of you lovely players have been instrumental in making our community grow and blossom in to what it is today with contests, events, feature updates and all manners of community interactions.<br><br>
+
+                    Today I am announcing that I will as of June no longer be the community manager of Worlds FRVR. I will however remain within the FRVR ecosystem as part of a brand new content and marketing team which will be producing media content for many games within the FRVR portfolio, Worlds included. This means that I will still be part of this game and see you all frequently, but not at the same capacity and extent as before. This means that I will not be hosting contests, events, streams and other tasks related to the growth of this fine community.<br><br>
+
+                    I would like to thank the developer team for being awesome to work with this entire time, as well as Benjaminsen in particular for bringing me on-board three years ago. I would also like to thank all of you for making this the best job I've ever had and for helping me. There would be no community to speak of if not for all of you.<br><br>
+
+                    It has been an enormous privilege to spend time with all of you fine players, new and veterans alike, and I am confident with the new features underway, Worlds FRVR will continue to grow in to something amazing.<br><br>
+
+                    *Signing off,*<br>
+                    *MicChiFRVR* 🖖
+                </p>
+            </div>
+
+            <div class="modal" id="imageModal">
+                <img src="" alt="Full Image" class="modal-image">
+                <div class="modal-close" onclick="closeImageModal()">
+                    X
+                </div>
+            </div>
+        </div>
+
+        <div id="aboutContainer" class="about-container">
+            <h1 class="text-2xl text-white font-bold mb-8">ABOUT:</h1>
+            <p>
+                Welcome to this amazing fan website! Please note that I'm **not** affiliated with Worlds FRVR's official team. I'm a passionate fan who has created this platform to celebrate and appreciate the game. Enjoy exploring and connecting with fellow enthusiasts here!
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdn.tailwindcss.com/2.2.19/tailwind.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
