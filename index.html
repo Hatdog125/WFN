@@ -9,13 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="loading-screen">
-        <img class="loading-logo" src="worlds-frvr.png" alt="Worlds FRVR Logo">
-        <h2 class="loading-text">LOADING</h2>
+        <div class="loading-content">
+            <img class="loading-logo" src="worlds-frvr.png" alt="Loading Logo">
+            <p class="loading-text">
+                LOADING
+            </p>
+        </div>
     </div>
 
     <div class="container">
@@ -35,14 +40,13 @@
             </div>
         </div>
 
-        <div class="dropdown-container">
-            <select id="categoryDropdown" class="category-dropdown" onchange="filterArticles()">
-                <option value="all">Categories</option>
-                <option value="contest">Contest</option>
-                <option value="announcement">Announcement</option>
-                <option value="updates">Updates</option>
-            </select>
+        <div class="category-container">
+            <button class="category-button active" onclick="toggleCategory(this)">Contest</button>
+            <button class="category-button" onclick="toggleCategory(this)">Announcement</button>
+            <button class="category-button" onclick="toggleCategory(this)">Update</button>
         </div>
+
+        <h1 class="not-official"><i class="fas fa-exclamation-triangle fa-bounce alert-icon"></i> This is not official</h1>
 
         <div id="latestNewsContainer">
             <div class="article">
@@ -56,7 +60,6 @@
                     <a href="https://www.reddit.com/r/WorldsFRVR/comments/14dandq/community_contest_127_wings_and_walls/?utm_source=share&utm_medium=web2x&context=3" class="article-link">https://www.reddit.com/r/WorldsFRVR/comments/14dandq/community_contest_127_wings_and_walls/?utm_source=share&utm_medium=web2x&context=3</a>
                 </p>
             </div>
-
 
             <div class="article">
                 <h2 class="article-title">Update: 0.77.0</h2>
@@ -104,7 +107,7 @@
             <div class="modal" id="imageModal">
                 <img src="" alt="Full Image" class="modal-image">
                 <div class="modal-close" onclick="closeImageModal()">
-                    X
+                    <i class="fa-solid fa-circle-xmark"></i>
                 </div>
             </div>
         </div>
@@ -112,12 +115,107 @@
         <div id="aboutContainer" class="about-container">
             <h1 class="text-2xl text-white font-bold mb-8">ABOUT:</h1>
             <p>
-                Welcome to this amazing fan website! Please note that I'm **not** affiliated with Worlds FRVR's official team. I'm a passionate fan who has created this platform to celebrate and appreciate the game. Enjoy exploring and connecting with fellow enthusiasts here!
+                Welcome to this amazing fan website! Please note that I'm **not** affiliated with Worlds FRVR's official team. I'm a passionate fan who has created this platform to celebrate and appreciate the game. Enjoy exploring and connecting with fellow enthusiasts here!<br><br>
+            </p>
+
+            <p>
+                <i class="fa fa-gamepad"></i> Play: <a href="https://worlds.frvr.com/" class="article-link">Worlds FRVR</a><br>
+                <i class="fab fa-reddit"></i> Reddit: <a href="https://www.reddit.com/r/WorldsFRVR/" class="article-link">Worlds FRVR Reddit</a><br>
+                <i class="fab fa-facebook"></i> Facebook: <a href="https://www.facebook.com/worldsfrvr/" class="article-link">Worlds FRVR Facebook</a><br>
+                <i class="fab fa-twitter"></i> Twitter: <a href="https://twitter.com/worldsfrvr" class="article-link">Worlds FRVR Twitter</a><br>
+                <i class="fab fa-discord"></i> Discord: <a href="https://discord.gg/WorldsFRVR" class="article-link">Worlds FRVR Discord</a><br>
+                <i class="fas fa-book"></i> Wiki: <a href="https://www.reddit.com/r/WorldsFRVR/wiki" class="article-link">Worlds FRVR Wiki</a><br><br>
+            </p>
+
+            <p>
+                Worlds FRVR is a brand new crafting and exploration game where the only limit is your imagination. Join other players in exploring vast worlds while joining together to build amazing creations that you can share with each other and the world. The game can be played on nearly any device, just visit worlds.frvr.com from your desktop, tablet or smartphone to play!
             </p>
         </div>
+
+        <div id="developerContainer" class="developer-container">
+            <h1 class="text-2x1 text-white font-bold mb-8">NEWSPAPER:</h1>
+            <div class="carousel">
+                <div>
+                    <img src="prismatic_orb.png" alt="Image 1" data-caption="Caption for Image 1">
+                    <div class="caption">
+                        Get your hands on unique outfits with the new Prismatic Orbs! ✨<br><br>
+
+                        With Prismatic Orbs you can unlock new exclusive outfits that will take your character's style to the next level.<br><br>
+
+                        Head over to the game and start customizing your character today! 🙌<br><br>
+
+                        <i class="fa fa-gamepad"></i> <a href="https://worlds.frvr.com/" class="article-link">Worlds FRVR</a>
+                    </div>
+                </div>
+                <div>
+                    <img src="community_contests.png" alt="Image 2" data-caption="Caption for Image 2">
+                    <div class="caption">
+
+                        📣 <strong>Keep the Contests Going</strong><br><br>
+                        Attention, building enthusiasts! We have some exciting news for all the dedicated players of Worlds FRVR. While the official contests may have come to an end, the spirit of competition and creativity will continue to thrive within our vibrant community.<br><br>
+
+                        I, Doc, am thrilled to announce that with the help of this great community we will continue challenging everyone who thinks they can make it to the top of the Worlds builder society and claim the (un)official crown as a Champion of Worlds!<br><br>
+
+                        Join us in this new chapter of community-driven contests, where all players will have the opportunity to showcase their talent and be recognized for their incredible creations. Whether it's constructing awe-inspiring structures, designing intricate landscapes, or crafting immersive worlds, there will be a contest for every aspiring architect and visionary.<br><br>
+
+                        Stay tuned for updates and announcements regarding the upcoming contests. Not a lot will change to the way the official contests were held, besides the prize pool. All the rules that applied then will be taken over to the community contests and we will continue updating you on new events and winners on Social Media (including here on Discord) the way you're used to.<br><br>
+
+                        The first Community Contest will start <strong>next week on Monday!</strong>
+                    </div>
+                </div>
+                <div>
+                    <img src="new_skins.png" alt="Image 3" data-caption="Caption for Image 3">
+                    <div class="caption">
+                        ✨ Get ready for an outfit upgrade! ✨<br>
+                        We're thrilled to announce the launch of 8 new exclusive outfits for your character in Worlds FRVR!<br><br>
+
+                        Use the Prismatic Orbs to purchase the exclusive outfits and level up your character's style to stand out from the crowd 👑<br><br>
+
+                        We can’t wait to see the new outfits on your character in the game, and see which ones will be your favorites 🌟<br><br>
+
+                        Head over to the game and get the exclusive collection now!<br><br>
+
+                        <i class="fa fa-gamepad"></i> <a href="https://worlds.frvr.com/" class="article-link">Worlds FRVR</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contactContainer" class="contact-container flex">
+            <div class="w-1/2">
+                <h1 class="text-2xl text-white font-bold mb-8">CONTACT:</h1>
+                <form action="https://formspree.io/f/mjvqbvqr" method="POST" class="max-w-md mx-auto">
+                    <div class="mb-4">
+                        <label class="block text-white text-sm font-bold mb-2" for="name">Name:</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" name="Name" type="text" placeholder="Enter your name">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-white text-sm font-bold mb-2" for="messageType">Message Type:</label>
+                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="messageType" name="Message Type">
+                            <option value="technical">Technical</option>
+                            <option value="suggestion">Suggestion</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-white text-sm font-bold mb-2" for="message">Message:</label>
+                        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" name="Message" placeholder="Enter your message"></textarea>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
     </div>
 
+    <script src="https://kit.fontawesome.com/560edfcd49.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com/2.2.19/tailwind.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
     <script src="main.js"></script>
 </body>
 
